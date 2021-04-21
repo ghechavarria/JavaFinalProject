@@ -1,9 +1,8 @@
 package carDealerFamily;
 
 public class Model extends Car {
-	
+	//fields
 	private String model;
-	
 
 	//getters and setters
 	public String getModel() {
@@ -28,8 +27,8 @@ public class Model extends Car {
 	
 	//copy constructor
 	public Model(Model m) {
-		super((Model)m);
-		this.setModel(this.getModel());
+		super((Car)m); //polymorphism
+		this.setModel(m.getModel());
 	}
 	
 	//to string

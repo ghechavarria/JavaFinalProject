@@ -103,7 +103,7 @@ public class Customer {
 	//copy constructor
 	public Customer(Customer c) {
 		super();
-		this.id = c.id; //copy or creat new?
+		this.id = c.id; //copy or create new?
 		this.setfName(c.fName);
 		this.setlName(c.lName);
 		this.setStreet(c.street);
