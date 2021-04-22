@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class CarDealer extends JFrame{
-	
 	//GUI components declaration as fields
 	private JLabel fNameLabel, lNameLabel, addressLabel, cityLabel, stateLabel, zipLabel, countryLabel;
 	private JLabel modelsLabel, extrasLabel, discountsLabel, receiptLabel;
@@ -30,7 +29,11 @@ public class CarDealer extends JFrame{
 		stateLabel = new JLabel("State");
 		zipLabel = new JLabel("ZIP");
 		countryLabel = new JLabel("Country");
-		//DROPDOWN FOR COUNTRY MISSING
+		/*
+		 * 
+		 * DROPDOWN FOR COUNTRY MISSING
+		 * 
+		 * */
 		signUpBtn = new JButton("Sign Up");
 		
 		//inside middle panel
@@ -64,7 +67,11 @@ public class CarDealer extends JFrame{
 		
 		//ACTION LISTENERS
 		//dropdown
-		
+		/*
+		 * 
+		 * DROPDOWN FOR COUNTRY MISSING
+		 * 
+		 * */
 		//radio buttons
 		rbS40.addActionListener(new rbActionListener());
 		rbS60.addActionListener(new rbActionListener());
