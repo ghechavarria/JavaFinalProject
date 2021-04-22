@@ -27,10 +27,12 @@ public class CarDealer extends JFrame{
 
 	public static void main(String[] args) {
 		//new CarDealer(); /*GUI*/
-		Model m = new Model();
-		Model m2 = new Model(27700.00, "S40");
 		Customer c = new Customer("Luis", "Lastname", "0000 NW 000th Ct", "Davie", "FL", "00000", "United States");
-		System.out.println(c + "\n\n" + m + "\n\n" + m2);
+		S40 s4 = new S40(true, false, 0.0, false, false, true);
+		S60 s6 = new S60();
+		S70 s7 = new S70();
+		S80 s8 = new S80(false, true, 5000, true, false, 2);
+		System.out.println(c + "\n\n" + s4 + "\n\n" + s6 + "\n\n" + s7 + "\n\n" + s8);
 	}
 
 }

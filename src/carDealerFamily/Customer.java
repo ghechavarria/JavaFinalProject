@@ -89,7 +89,6 @@ public class Customer {
 	//full params
 	public Customer(String fName, String lName, String street, String city, String state, String zip, String country) {
 		super();
-
 		this.setfName(fName);
 		this.setlName(lName);
 		this.setid(this.getfName(), this.getlName());
@@ -103,7 +102,7 @@ public class Customer {
 	//copy constructor
 	public Customer(Customer c) {
 		super();
-		this.id = c.id; //copy or create new?
+		this.id = c.id;
 		this.setfName(c.fName);
 		this.setlName(c.lName);
 		this.setStreet(c.street);
