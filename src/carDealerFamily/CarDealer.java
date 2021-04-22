@@ -86,6 +86,8 @@ public class CarDealer extends JFrame{
 		//add colors
 		
 		//add layout manager
+		
+		//create panels and manage layout 
 		JPanel leftPanel = new JPanel();
 		JPanel lpanel1 = new JPanel();
 		JPanel lpanel2 = new JPanel();
@@ -127,6 +129,21 @@ public class CarDealer extends JFrame{
 		rpanel3.setBorder(BorderFactory.createTitledBorder("rpanel3"));
 		rightPanel.setBounds(600, 0, 600, 600);
 		rightPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		
+		//add radio buttons to button group
+		bgModels.add(rbS40);
+		bgModels.add(rbS60);
+		bgModels.add(rbS70);
+		bgModels.add(rbS80);
+		
+		//add radio buttons to mpanel1
+		mpanel1.add(rbS40);
+		mpanel1.add(rbS60);
+		mpanel1.add(rbS70);
+		mpanel1.add(rbS80);
+		
+		//set layout for radio buttons
+		mpanel1.setLayout(new GridLayout(4,1));
 		
 		
 		JFrame frame = new JFrame();
