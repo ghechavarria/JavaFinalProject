@@ -157,7 +157,6 @@ public class CarDealer extends JFrame{
 		frame.setTitle("Final Project");
 		
 		
-	}
 		
 		
 		//add components to window
@@ -241,7 +240,7 @@ public class CarDealer extends JFrame{
 	}
 
 	public static void main(String[] args) {
-		//new CarDealer(); /*GUI*/
+		new CarDealer(); /*GUI*/
 		Customer c = new Customer("Luis", "Lastname", "0000 NW 000th Ct", "Davie", "FL", "00000", "United States");
 		S40 s4 = new S40(true, false, 0.0, false, false, true);
 		S60 s6 = new S60();
