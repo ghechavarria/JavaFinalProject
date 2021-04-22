@@ -34,14 +34,12 @@ public class CarDealer extends JFrame{
 		signUpBtn = new JButton("Sign Up");
 		
 		//inside middle panel
-		modelsLabel = new JLabel("Models");
 		bgModels = new ButtonGroup();
 		rbS40 = new JRadioButton("S40");
 		rbS60 = new JRadioButton("S60");
 		rbS70 = new JRadioButton("S70");
 		rbS80 = new JRadioButton("S80");
 		
-		extrasLabel = new JLabel("Extras");
 		packageA = new JCheckBox("Package 'A'");
 		packageB = new JCheckBox("Package 'B'");
 		metallicPaint = new JCheckBox("Metallic Paint");
@@ -52,7 +50,6 @@ public class CarDealer extends JFrame{
 		payCash = new JCheckBox("Pay Cash");
 		
 		//inside right panel
-		receiptLabel = new JLabel("Receipt");
 		customerID = new JLabel("Customer ID: ");
 		idDisplay = new JLabel("------");
 		customerName = new JLabel("Customer Name: ");
@@ -99,16 +96,16 @@ public class CarDealer extends JFrame{
 	private class rbActionListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-//			if(e.getSource()== rbS40) {
+//			if(e.getSource() == rbS40) {
 //
 //			}
-//			if(e.getSource()== rbS60) {
+//			if(e.getSource() == rbS60) {
 //
 //			}
-//			if(e.getSource()== rbS70) {
+//			if(e.getSource() == rbS70) {
 //
 //			}
-//			if(e.getSource()== rbS80) {
+//			if(e.getSource() == rbS80) {
 //
 //			}
 		}
@@ -117,13 +114,13 @@ public class CarDealer extends JFrame{
 	private class buttonListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-//			if(ch1.isSelected())
+//			if(signUpBtn.isSelected())
 //
 //
-//			if(ch2.isSelected())
+//			if(calculateBtn.isSelected())
 //
 //
-//			if(ch3.isSelected())
+//			if(exitBtn.isSelected())
 
 		}
 	}
@@ -132,18 +129,33 @@ public class CarDealer extends JFrame{
 	private class CheckListener implements ItemListener{
 		@Override
 		public void itemStateChanged(ItemEvent e) {
-//			if(e.getSource()==ch1) {
-//				if(ch1.isSelected())
+//			if(e.getSource() == packageA) {
+//				if(packageA.isSelected())
 //
 //			}
 
-//			if(e.getSource()==ch2) {
-//				if(ch2.isSelected())
+//			if(e.getSource() == packageB) {
+//				if(packageB.isSelected())
 //
 //			}
 
-//			if(e.getSource()==ch3) {
-//				if(ch3.isSelected())
+//			if(e.getSource() == metallicPaint) {
+//				if(metallicPaint.isSelected())
+//
+//			}
+			
+//			if(e.getSource() == tradeIn) {
+//				if(tradeIn.isSelected())
+//
+//			}
+			
+//			if(e.getSource() == financing) {
+//			if(financing.isSelected())
+//
+//			}
+			
+//			if(e.getSource() == payCash) {
+//			if(payCash.isSelected())
 //
 //			}
 		}
