@@ -83,7 +83,7 @@ public abstract class Car {
 	public double calculateTotal(double subTotal) {
 		double total = 0.0;
 		double tax = 0.0;
-		final double SALESTAX = .6;
+		final double SALESTAX = .06;
 		final double TITLE_TAGS = 325;
 		
 		tax = subTotal * SALESTAX;

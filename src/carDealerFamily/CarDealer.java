@@ -32,7 +32,7 @@ public class CarDealer extends JFrame{
 		S60 s6 = new S60();
 		S70 s7 = new S70();
 		S80 s8 = new S80(false, true, 5000, true, false, 2);
-		System.out.println(c + "\n\n" + s4 + "\n\n" + s6 + "\n\n" + s7 + "\n\n" + s8);
+		System.out.println(c + "\n\n" + s4 + "\n" + s4.calculateSubTotal() + "\n" + s4.calculateTotal(s4.calculateSubTotal()) + "\n\n" + s6 + "\n\n" + s7 + "\n\n" + s8);
 	}
 
 }
