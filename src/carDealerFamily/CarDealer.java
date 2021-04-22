@@ -10,25 +10,80 @@ public class CarDealer extends JFrame{
 	private JLabel fNameLabel, lNameLabel, addressLabel, cityLabel, stateLabel, zipLabel, countryLabel;
 	private JLabel modelsLabel, extrasLabel, discountsLabel, receiptLabel;
 	private JLabel customerID, customerName, subtotal, total;
+	private JLabel idDisplay, nameDisplay, subtotalDisplay, totalDisplay;
 	private JButton signUpBtn, calculateBtn, exitBtn;
 	
 	private JTextField fName, lName, address, city, state, zip;
-	private JRadioButton rbS40, rbS60, rbS70, rbs80;
+	private JRadioButton rbS40, rbS60, rbS70, rbS80;
 	private ButtonGroup bgModels;
 	
 	private JCheckBox packageA, packageB, metallicPaint, tradeIn, financing, payCash;
 	
 	
 	public CarDealer() {
-		//GUI Components
-		//build new objects of the field declarations
+		//GUI COMPONENTS
+		//inside left panel
 		fNameLabel = new JLabel("First Name");
 		lNameLabel = new JLabel("Last Name");
 		addressLabel = new JLabel("Address");
 		cityLabel = new JLabel("City");		
+		stateLabel = new JLabel("State");
+		zipLabel = new JLabel("ZIP");
+		countryLabel = new JLabel("Country");
+		//DROPDOWN FOR COUNTRY MISSING
+		signUpBtn = new JButton("Sign Up");
+		
+		//inside middle panel
+		modelsLabel = new JLabel("Models");
+		bgModels = new ButtonGroup();
+		rbS40 = new JRadioButton("S40");
+		rbS60 = new JRadioButton("S60");
+		rbS70 = new JRadioButton("S70");
+		rbS80 = new JRadioButton("S80");
+		
+		extrasLabel = new JLabel("Extras");
+		packageA = new JCheckBox("Package 'A'");
+		packageB = new JCheckBox("Package 'B'");
+		metallicPaint = new JCheckBox("Metallic Paint");
+		
+		discountsLabel = new JLabel("Discounts");
+		tradeIn = new JCheckBox("Trade-In");
+		financing = new JCheckBox("Financing");
+		payCash = new JCheckBox("Pay Cash");
+		
+		//inside right panel
+		receiptLabel = new JLabel("Receipt");
+		customerID = new JLabel("Customer ID: ");
+		idDisplay = new JLabel("------");
+		customerName = new JLabel("Customer Name: ");
+		nameDisplay = new JLabel("------ --------");
+		subtotal = new JLabel("Subtotal: ");
+		subtotalDisplay = new JLabel("$-----.00");
+		total = new JLabel("Total: ");
+		totalDisplay = new JLabel("$-----.00");
+		calculateBtn = new JButton("Calculate");
+		exitBtn = new JButton("Exit");
 		
 		
-		//add listeners
+		//ACTION LISTENERS
+		//dropdown
+		
+		//radio buttons
+		rbS40.addActionListener(new rbActionListener());
+		rbS60.addActionListener(new rbActionListener());
+		rbS70.addActionListener(new rbActionListener());
+		rbS80.addActionListener(new rbActionListener());
+		//check boxes
+		packageA.addItemListener(new CheckListener());
+		packageB.addItemListener(new CheckListener());
+		metallicPaint.addItemListener(new CheckListener());
+		tradeIn.addItemListener(new CheckListener());
+		financing.addItemListener(new CheckListener());
+		payCash.addItemListener(new CheckListener());
+		//buttons
+		signUpBtn.addActionListener(new buttonListener());
+		calculateBtn.addActionListener(new buttonListener());
+		exitBtn.addActionListener(new buttonListener());
 		
 		//add colors
 		
@@ -39,6 +94,59 @@ public class CarDealer extends JFrame{
 		//add to window
 		
 		//set window parameters
+	}
+	
+	private class rbActionListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+//			if(e.getSource()== rbS40) {
+//
+//			}
+//			if(e.getSource()== rbS60) {
+//
+//			}
+//			if(e.getSource()== rbS70) {
+//
+//			}
+//			if(e.getSource()== rbS80) {
+//
+//			}
+		}
+	}
+	
+	private class buttonListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+//			if(ch1.isSelected())
+//
+//
+//			if(ch2.isSelected())
+//
+//
+//			if(ch3.isSelected())
+
+		}
+	}
+
+	
+	private class CheckListener implements ItemListener{
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+//			if(e.getSource()==ch1) {
+//				if(ch1.isSelected())
+//
+//			}
+
+//			if(e.getSource()==ch2) {
+//				if(ch2.isSelected())
+//
+//			}
+
+//			if(e.getSource()==ch3) {
+//				if(ch3.isSelected())
+//
+//			}
+		}
 	}
 
 	public static void main(String[] args) {
