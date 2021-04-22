@@ -86,6 +86,62 @@ public class CarDealer extends JFrame{
 		//add colors
 		
 		//add layout manager
+		JPanel leftPanel = new JPanel();
+		JPanel lpanel1 = new JPanel();
+		JPanel lpanel2 = new JPanel();
+		JPanel lpanel3 = new JPanel();
+		
+		JPanel middlePanel = new JPanel();
+		JPanel mpanel1 = new JPanel();
+		JPanel mpanel2 = new JPanel();
+		JPanel mpanel3 = new JPanel();
+		
+		JPanel rightPanel = new JPanel();
+		JPanel rpanel1 = new JPanel();
+		JPanel rpanel2 = new JPanel();
+		JPanel rpanel3 = new JPanel();
+		
+		leftPanel.add(lpanel1);
+		leftPanel.add(lpanel2);
+		leftPanel.add(lpanel3);
+		lpanel1.setBorder(BorderFactory.createTitledBorder("lpanel1"));
+		lpanel2.setBorder(BorderFactory.createTitledBorder("lpanel2"));
+		lpanel3.setBorder(BorderFactory.createTitledBorder("lpanel3"));
+		leftPanel.setBounds(0, 0, 300, 600);
+		leftPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		
+		middlePanel.add(mpanel1);
+		middlePanel.add(mpanel2);
+		middlePanel.add(mpanel3);
+		mpanel1.setBorder(BorderFactory.createTitledBorder("Models"));
+		mpanel2.setBorder(BorderFactory.createTitledBorder("Extras"));
+		mpanel3.setBorder(BorderFactory.createTitledBorder("Discounts"));
+		middlePanel.setBounds(300, 0, 300, 600);
+		middlePanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		
+		rightPanel.add(rpanel1);
+		rightPanel.add(rpanel2);
+		rightPanel.add(rpanel3);
+		rpanel1.setBorder(BorderFactory.createTitledBorder("Receipt"));
+		rpanel2.setBorder(BorderFactory.createTitledBorder("rpanel2"));
+		rpanel3.setBorder(BorderFactory.createTitledBorder("rpanel3"));
+		rightPanel.setBounds(600, 0, 600, 600);
+		rightPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		
+		
+		JFrame frame = new JFrame();
+		frame.setSize(900, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setLayout(null);
+		frame.add(leftPanel);
+		frame.add(middlePanel);
+		frame.add(rightPanel);
+		frame.setTitle("Final Project");
+		
+		
+	}
+		
 		
 		//add components to window
 		
