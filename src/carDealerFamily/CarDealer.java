@@ -18,8 +18,12 @@ public class CarDealer extends JFrame{
 	
 	private JCheckBox packageA, packageB, metallicPaint, tradeIn, financing, payCash;
 	
+	private JComboBox countryDropDown;
 	
 	public CarDealer() {
+		//list for dropdown
+		String country[] = {"United States", "Canada"};
+		
 		//GUI COMPONENTS
 		//inside left panel
 		fNameLabel = new JLabel("First Name");
@@ -29,11 +33,7 @@ public class CarDealer extends JFrame{
 		stateLabel = new JLabel("State");
 		zipLabel = new JLabel("ZIP");
 		countryLabel = new JLabel("Country");
-		/*
-		 * 
-		 * DROPDOWN FOR COUNTRY MISSING
-		 * 
-		 * */
+		countryDropDown = new JComboBox(country);
 		signUpBtn = new JButton("Sign Up");
 		
 		//inside middle panel
@@ -66,12 +66,6 @@ public class CarDealer extends JFrame{
 		
 		
 		//ACTION LISTENERS
-		//dropdown
-		/*
-		 * 
-		 * DROPDOWN FOR COUNTRY MISSING
-		 * 
-		 * */
 		//radio buttons
 		rbS40.addActionListener(new rbActionListener());
 		rbS60.addActionListener(new rbActionListener());
@@ -122,6 +116,11 @@ public class CarDealer extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 //			if(signUpBtn.isSelected())
+//				//dropdown
+//				int index;
+//				String selectedCountry;
+//				index = countryDropDown.getSelectedIndex()
+//				selectedCountry = country[index]
 //
 //
 //			if(calculateBtn.isSelected())
