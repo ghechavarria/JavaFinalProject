@@ -35,7 +35,7 @@ public class S60 extends Car {
 		//no args
 		public S60() {
 			super.setPrice(32500);//hard code the price
-			model = "S40";
+			model = "S60";
 			carPackage = false;
 			namePackage = "no-package";
 		}
@@ -44,7 +44,7 @@ public class S60 extends Car {
 		public S60(boolean metallicPaint, boolean tradeIn, double tradeInValue, boolean financing, boolean payCash, boolean carPackage) {
 			super(metallicPaint, tradeIn, tradeInValue, financing, payCash);
 			this.setPrice(32500); //hard code the price
-			this.setModel("S40");
+			this.setModel("S60");
 			this.setCarPackage(carPackage);
 			//setNumPackage -> sets setNamePackage
 		}

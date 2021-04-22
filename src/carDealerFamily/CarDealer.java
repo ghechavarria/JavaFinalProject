@@ -7,10 +7,26 @@ import java.awt.event.*;
 public class CarDealer extends JFrame{
 	
 	//GUI components declaration as fields
+	private JLabel fNameLabel, lNameLabel, addressLabel, cityLabel, stateLabel, zipLabel, countryLabel;
+	private JLabel modelsLabel, extrasLabel, discountsLabel, receiptLabel;
+	private JLabel customerID, customerName, subtotal, total;
+	private JButton signUpBtn, calculateBtn, exitBtn;
+	
+	private JTextField fName, lName, address, city, state, zip;
+	private JRadioButton rbS40, rbS60, rbS70, rbs80;
+	private ButtonGroup bgModels;
+	
+	private JCheckBox packageA, packageB, metallicPaint, tradeIn, financing, payCash;
+	
 	
 	public CarDealer() {
 		//GUI Components
 		//build new objects of the field declarations
+		fNameLabel = new JLabel("First Name");
+		lNameLabel = new JLabel("Last Name");
+		addressLabel = new JLabel("Address");
+		cityLabel = new JLabel("City");		
+		
 		
 		//add listeners
 		
