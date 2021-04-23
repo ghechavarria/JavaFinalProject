@@ -3,9 +3,14 @@ package carDealerFamily;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.ImageIcon;
 
 public class CarDealer extends JFrame{
 	//GUI components declaration as fields
+	private ImageIcon imageUser = new ImageIcon("userImage.png");
+	private ImageIcon carPicture = new ImageIcon("car.png");
+	private JLabel picLabel;
+	private JLabel carLabel;
 	private JLabel fNameLabel, lNameLabel, addressLabel, cityLabel, stateLabel, zipLabel, countryLabel;
 	private JLabel modelsLabel, extrasLabel, discountsLabel, receiptLabel;
 	private JLabel customerID, customerName, subtotal, total;
@@ -26,12 +31,20 @@ public class CarDealer extends JFrame{
 		
 		//GUI COMPONENTS
 		//inside left panel
+		picLabel = new JLabel("");
+		carLabel = new JLabel("");
 		fNameLabel = new JLabel("First Name");
+		fName = new JTextField();
 		lNameLabel = new JLabel("Last Name");
+		lName = new JTextField();
 		addressLabel = new JLabel("Address");
-		cityLabel = new JLabel("City");		
+		address = new JTextField();
+		cityLabel = new JLabel("City");	
+		city = new JTextField();
 		stateLabel = new JLabel("State");
+		state = new JTextField();
 		zipLabel = new JLabel("ZIP");
+		zip = new JTextField();
 		countryLabel = new JLabel("Country");
 		countryDropDown = new JComboBox(country);
 		signUpBtn = new JButton("Sign Up");
@@ -54,13 +67,13 @@ public class CarDealer extends JFrame{
 		
 		//inside right panel
 		customerID = new JLabel("Customer ID: ");
-		idDisplay = new JLabel("------");
+		idDisplay = new JLabel("- - - - - -");
 		customerName = new JLabel("Customer Name: ");
-		nameDisplay = new JLabel("------ --------");
+		nameDisplay = new JLabel("- - - - - -  - - - - - - - -");
 		subtotal = new JLabel("Subtotal: ");
-		subtotalDisplay = new JLabel("$-----.00");
+		subtotalDisplay = new JLabel("$- - - - - . 00");
 		total = new JLabel("Total: ");
-		totalDisplay = new JLabel("$-----.00");
+		totalDisplay = new JLabel("$- - - - - . 00");
 		calculateBtn = new JButton("Calculate");
 		exitBtn = new JButton("Exit");
 		
@@ -87,11 +100,147 @@ public class CarDealer extends JFrame{
 		
 		//add layout manager
 		
+		//create panels and manage layout 
+		JPanel leftPanel = new JPanel();
+		JPanel lpanel1 = new JPanel();
+		JPanel lpanel2 = new JPanel();
+		JPanel lpanel3 = new JPanel();
+		
+		JPanel middlePanel = new JPanel();
+		JPanel mpanel1 = new JPanel();
+		JPanel mpanel2 = new JPanel();
+		JPanel mpanel3 = new JPanel();
+		
+		JPanel rightPanel = new JPanel();
+		JPanel rpanel1 = new JPanel();
+		JPanel rpanel2 = new JPanel();
+		JPanel rpanel3 = new JPanel();
+		
+		//create layout for sub-panels
+		leftPanel.setBounds(0, 0, 250, 550);
+		leftPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		leftPanel.setBorder(BorderFactory.createTitledBorder("Customer"));
+		
+		middlePanel.setBounds(300, 0, 250, 550);
+		middlePanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		
+		rightPanel.setBounds(600, 0, 250, 550);
+		rightPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		rightPanel.setBorder(BorderFactory.createTitledBorder("Receipt"));
+		
+		//create panel for Image
+		leftPanel.add(lpanel1);
+		picLabel.setIcon(imageUser);
+		lpanel1.add(picLabel);
+		
+		//create panel for text boxes to enter user information
+		leftPanel.add(lpanel2);
+		//add labels & text field to panel
+		lpanel2.add(fNameLabel);
+		lpanel2.add(fName);
+		lpanel2.add(lNameLabel);
+		lpanel2.add(lName);
+		lpanel2.add(addressLabel);
+		lpanel2.add(address);
+		lpanel2.add(cityLabel);
+		lpanel2.add(city);
+		lpanel2.add(stateLabel);
+		lpanel2.add(state);
+		lpanel2.add(zipLabel);
+		lpanel2.add(zip);
+		lpanel2.add(countryLabel);
+		lpanel2.add(countryDropDown);
+		//set layout for labels & text fields
+		lpanel2.setLayout(new GridLayout(8, 2));
+		
+		//create panel for submit button
+		leftPanel.add(lpanel3);
+		//add submit button
+		lpanel3.add(signUpBtn);
+		
+		//Create panel for Model
+		middlePanel.add(mpanel1);
+		//add radio buttons to button group
+		bgModels.add(rbS40);
+		bgModels.add(rbS60);
+		bgModels.add(rbS70);
+		bgModels.add(rbS80);
+		//add radio buttons to panel
+		mpanel1.add(rbS40);
+		mpanel1.add(rbS60);
+		mpanel1.add(rbS70);
+		mpanel1.add(rbS80);
+		//set layout for radio buttons
+		mpanel1.setLayout(new GridLayout(4,1));
+		//create border for Model panel
+		mpanel1.setBorder(BorderFactory.createTitledBorder("Models"));
+		
+		//create panel for Extras
+		middlePanel.add(mpanel2);
+		//add check boxes to panel
+		mpanel2.add(packageA);
+		mpanel2.add(packageB);
+		mpanel2.add(metallicPaint);
+		//set layout for check boxes
+		mpanel2.setLayout(new GridLayout(3,1));
+		//create border for Extras panel
+		mpanel2.setBorder(BorderFactory.createTitledBorder("Extras"));
+		
+		//create panel for Discounts
+		middlePanel.add(mpanel3);
+		//add check boxes to panel
+		mpanel3.add(tradeIn);
+		mpanel3.add(financing);
+		mpanel3.add(payCash);
+		//set layout for check boxes
+		mpanel3.setLayout(new GridLayout(3,1));
+		//create border for Discounts panel
+		mpanel3.setBorder(BorderFactory.createTitledBorder("Discounts"));
+		
+		//create panel for Receipt
+		rightPanel.add(rpanel1);
+		rpanel1.add(customerID);
+		rpanel1.add(idDisplay);
+		rpanel1.add(customerName);
+		rpanel1.add(nameDisplay);
+		rpanel1.add(subtotal);
+		rpanel1.add(subtotalDisplay);
+		rpanel1.add(total);
+		rpanel1.add(totalDisplay);
+		//set layout for Receipt panel
+		rpanel1.setLayout(new GridLayout(5, 2));
+				
+		
+		//add panel for calculate and exit buttons
+		rightPanel.add(rpanel2);
+		//add calculate and exit buttons
+		rpanel2.add(calculateBtn);
+		rpanel2.add(exitBtn);
+		
+		//car picture panel
+		rightPanel.add(rpanel3);
+		carLabel.setIcon(carPicture);
+		rpanel3.add(carLabel);
+	
+		
+		
+		//configure JFrame
 		//add components to window
-		
 		//add to window
-		
 		//set window parameters
+		JFrame frame = new JFrame();
+		frame.setSize(865, 590);
+		this.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setLayout(null);
+		frame.add(leftPanel);
+		frame.add(middlePanel);
+		frame.add(rightPanel);
+		frame.setTitle("Final Project");
+		
+
+		
 	}
 	
 	private class rbActionListener implements ActionListener{
@@ -168,7 +317,7 @@ public class CarDealer extends JFrame{
 	}
 
 	public static void main(String[] args) {
-		//new CarDealer(); /*GUI*/
+		new CarDealer(); /*GUI*/
 		Customer c = new Customer("Luis", "Lastname", "0000 NW 000th Ct", "Davie", "FL", "00000", "United States");
 		S40 s4 = new S40(true, false, 0.0, false, false, true);
 		S60 s6 = new S60();
