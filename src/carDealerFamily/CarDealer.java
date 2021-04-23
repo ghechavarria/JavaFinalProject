@@ -1,11 +1,22 @@
 package carDealerFamily;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.Enumeration;
+import javax.swing.ImageIcon;
+
 
 public class CarDealer extends JFrame{
 	//GUI components declaration as fields
+	private ImageIcon imageUser = new ImageIcon("userImage.png");
+	private ImageIcon carPicture = new ImageIcon("car.png");
+	private JLabel picLabel;
+	private JLabel carLabel;
 	private JLabel fNameLabel, lNameLabel, addressLabel, cityLabel, stateLabel, zipLabel, countryLabel;
 	private JLabel modelsLabel, extrasLabel, discountsLabel, receiptLabel;
 	private JLabel customerID, customerName, subtotal, total;
@@ -26,6 +37,8 @@ public class CarDealer extends JFrame{
 		
 		//GUI COMPONENTS
 		//inside left panel
+		picLabel = new JLabel("");
+		carLabel = new JLabel("");
 		fNameLabel = new JLabel("First Name");
 		fName = new JTextField();
 		lNameLabel = new JLabel("Last Name");
@@ -62,7 +75,7 @@ public class CarDealer extends JFrame{
 		customerID = new JLabel("Customer ID: ");
 		idDisplay = new JLabel("------");
 		customerName = new JLabel("Customer Name: ");
-		nameDisplay = new JLabel("------ --------");
+		nameDisplay = new JLabel("------  --------");
 		subtotal = new JLabel("Subtotal: ");
 		subtotalDisplay = new JLabel("$-----.00");
 		total = new JLabel("Total: ");
@@ -84,15 +97,8 @@ public class CarDealer extends JFrame{
 		tradeIn.addItemListener(new CheckListener());
 		financing.addItemListener(new CheckListener());
 		payCash.addItemListener(new CheckListener());
-		//buttons
-		signUpBtn.addActionListener(new buttonListener());
-		calculateBtn.addActionListener(new buttonListener());
-		exitBtn.addActionListener(new buttonListener());
-		
-		//add colors
-		
-		//add layout manager
-		
+
+				
 		//create panels and manage layout 
 		JPanel leftPanel = new JPanel();
 		JPanel lpanel1 = new JPanel();
@@ -109,19 +115,104 @@ public class CarDealer extends JFrame{
 		JPanel rpanel2 = new JPanel();
 		JPanel rpanel3 = new JPanel();
 		
+		//add colors
+		signUpBtn.setBackground(Color.decode("#444B54"));
+		calculateBtn.setBackground(Color.decode("#444B54"));
+		exitBtn.setBackground(Color.decode("#444B54"));
+		signUpBtn.setForeground(Color.WHITE);
+		calculateBtn.setForeground(Color.WHITE);
+		exitBtn.setForeground(Color.WHITE);
+		leftPanel.setBackground(Color.decode("#E4E5E7"));
+		rightPanel.setBackground(Color.decode("#D8DABE"));
+		lpanel1.setBackground(Color.decode("#E4E5E7"));
+		lpanel2.setBackground(Color.decode("#E4E5E7"));
+		lpanel3.setBackground(Color.decode("#E4E5E7"));
+		mpanel1.setBackground(Color.decode("#D8DABE"));
+		mpanel2.setBackground(Color.decode("#D8DABE"));
+		mpanel3.setBackground(Color.decode("#D8DABE"));
+		rpanel1.setBackground(Color.decode("#E4E5E7"));
+		rpanel2.setBackground(Color.decode("#E4E5E7"));
+		rpanel3.setBackground(Color.decode("#E4E5E7"));
+		
+		fNameLabel.setOpaque(true);
+		lNameLabel.setOpaque(true);
+		addressLabel.setOpaque(true);
+		addressLabel.setOpaque(true);
+		cityLabel.setOpaque(true);
+		stateLabel.setOpaque(true);
+		zipLabel.setOpaque(true);
+		countryLabel.setOpaque(true);
+		fNameLabel.setBackground(Color.decode("#E4E5E7"));
+		lNameLabel.setBackground(Color.decode("#E4E5E7"));
+		addressLabel.setBackground(Color.decode("#E4E5E7"));
+		cityLabel.setBackground(Color.decode("#E4E5E7"));
+		stateLabel.setBackground(Color.decode("#E4E5E7"));
+		zipLabel.setBackground(Color.decode("#E4E5E7"));
+		countryLabel.setBackground(Color.decode("#E4E5E7"));
+		
+		rbS40.setOpaque(true);
+		rbS60.setOpaque(true);
+		rbS70.setOpaque(true);
+		rbS80.setOpaque(true);
+		
+		rbS40.setBackground(Color.decode("#E4E5E7"));
+		rbS60.setBackground(Color.decode("#E4E5E7"));
+		rbS70.setBackground(Color.decode("#E4E5E7"));
+		rbS80.setBackground(Color.decode("#E4E5E7"));
+		
+		packageA.setOpaque(true);
+		packageB.setOpaque(true);
+		metallicPaint.setOpaque(true);
+		
+		packageA.setBackground(Color.decode("#E4E5E7"));
+		packageB.setBackground(Color.decode("#E4E5E7"));
+		metallicPaint.setBackground(Color.decode("#E4E5E7"));
+		
+		discountsLabel.setOpaque(true);
+		tradeIn.setOpaque(true);
+		financing.setOpaque(true);
+		payCash.setOpaque(true);
+		
+		discountsLabel.setBackground(Color.decode("#E4E5E7"));
+		tradeIn.setBackground(Color.decode("#E4E5E7"));
+		financing.setBackground(Color.decode("#E4E5E7"));
+		payCash.setBackground(Color.decode("#E4E5E7"));
+		
+		customerID.setOpaque(true);
+		idDisplay.setOpaque(true);
+		customerName.setOpaque(true);
+		nameDisplay.setOpaque(true);
+		subtotal.setOpaque(true);
+		subtotalDisplay.setOpaque(true);
+		total.setOpaque(true);
+		totalDisplay.setOpaque(true);
+		
+		customerID.setBackground(Color.decode("#E4E5E7"));
+		idDisplay.setBackground(Color.decode("#E4E5E7"));
+		customerName.setBackground(Color.decode("#E4E5E7"));
+		nameDisplay.setBackground(Color.decode("#E4E5E7"));
+		subtotal.setBackground(Color.decode("#E4E5E7"));
+		subtotalDisplay.setBackground(Color.decode("#E4E5E7"));
+		total.setBackground(Color.decode("#E4E5E7"));
+		totalDisplay.setBackground(Color.decode("#E4E5E7"));
+		
+		//add layout manager
 		//create layout for sub-panels
 		leftPanel.setBounds(0, 0, 250, 550);
 		leftPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		leftPanel.setBorder(BorderFactory.createTitledBorder("Customer"));
 		
 		middlePanel.setBounds(300, 0, 250, 550);
 		middlePanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		
 		rightPanel.setBounds(600, 0, 250, 550);
 		rightPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		rightPanel.setBorder(BorderFactory.createTitledBorder("Receipt"));
 		
 		//create panel for Image
 		leftPanel.add(lpanel1);
-		lpanel1.setBorder(BorderFactory.createTitledBorder("Image Goes Here"));
+		picLabel.setIcon(imageUser);
+		lpanel1.add(picLabel);
 		
 		//create panel for text fields to enter user information
 		leftPanel.add(lpanel2);
@@ -142,15 +233,11 @@ public class CarDealer extends JFrame{
 		lpanel2.add(countryDropDown);
 		//set layout for labels & text fields
 		lpanel2.setLayout(new GridLayout(8, 2));
-		//create border for labels & text fields
-		lpanel2.setBorder(BorderFactory.createTitledBorder("Customer Info"));
 		
 		//create panel for submit button
 		leftPanel.add(lpanel3);
 		//add submit button
 		lpanel3.add(signUpBtn);
-		//create border for submit button
-		lpanel3.setBorder(BorderFactory.createTitledBorder("Sign Up"));
 		
 		//Create panel for Model
 		middlePanel.add(mpanel1);
@@ -203,27 +290,27 @@ public class CarDealer extends JFrame{
 		rpanel1.add(totalDisplay);
 		//set layout for Receipt panel
 		rpanel1.setLayout(new GridLayout(5, 2));
-		//create border for Receipt panel
-		rpanel1.setBorder(BorderFactory.createTitledBorder("Receipt"));
-		
+				
 		
 		//add panel for calculate and exit buttons
 		rightPanel.add(rpanel2);
 		//add calculate and exit buttons
 		rpanel2.add(calculateBtn);
 		rpanel2.add(exitBtn);
-		//create border for calculate and exit buttons. TEMPORARY will probably delete later
-		rpanel2.setBorder(BorderFactory.createTitledBorder("Buttons"));
 		
-		//useless panel
+		//car picture panel
 		rightPanel.add(rpanel3);
-		//useless border
-		rpanel3.setBorder(BorderFactory.createTitledBorder("rpanel3"));
-		
+		carLabel.setIcon(carPicture);
+		rpanel3.add(carLabel);
+	
 		
 		//configure JFrame
+		//add components to window
+		//add to window
+		//set window parameters
 		JFrame frame = new JFrame();
-		frame.setSize(900, 600);
+		frame.setSize(865, 590);
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLayout(null);
@@ -232,14 +319,31 @@ public class CarDealer extends JFrame{
 		frame.add(rightPanel);
 		frame.setTitle("Final Project");
 		
+		//SIGN UP ACTION LISTENER
+		signUpBtn.addActionListener(e->{
+			playAudio("sound.wav");
+
+		});
 		
+		//CALCULATE ACTION LISTENER
+		calculateBtn.addActionListener(e->{
+			playAudio("sound.wav");
+
+		});
 		
+		//EXIT ACTION LISTENER
+		exitBtn.addActionListener(e->{
+			playAudio("shutdown.wav");
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e1) {
+				JOptionPane.showMessageDialog(null, "Exit Error");
+			}
+			System.exit(0);
+
+		});
+
 		
-		//add components to window
-		
-		//add to window
-		
-		//set window parameters
 	}
 	
 	private class rbActionListener implements ActionListener{
@@ -271,11 +375,14 @@ public class CarDealer extends JFrame{
 //				selectedCountry = country[index]
 //
 //
-//			if(calculateBtn.isSelected())
+//			if(calculateBtn.isSelected()) {
 //
+//			}
 //
-//			if(exitBtn.isSelected())
-
+//			if(exitBtn.isSelected()) {
+//				
+//			}
+//
 		}
 	}
 
@@ -316,6 +423,8 @@ public class CarDealer extends JFrame{
 	}
 
 	public static void main(String[] args) {
+		setUIFont (new javax.swing.plaf.FontUIResource("MonoLisa",Font.PLAIN,15));
+		createLoadBar();
 		new CarDealer(); /*GUI*/
 		Customer c = new Customer("Luis", "Lastname", "0000 NW 000th Ct", "Davie", "FL", "00000", "United States");
 		S40 s4 = new S40(true, false, 0.0, false, false, true);
@@ -323,6 +432,40 @@ public class CarDealer extends JFrame{
 		S70 s7 = new S70();
 		S80 s8 = new S80(false, true, 5000, true, false, 2);
 		System.out.println(c + "\n\n" + s4 + "\n" + s4.calculateSubTotal() + "\n" + s4.calculateTotal(s4.calculateSubTotal()) + "\n\n" + s6 + "\n\n" + s7 + "\n\n" + s8);
-	}
+	}//end of main
+	
+	
+	public void playAudio(String musicFilePath){
+        File musicPath = new File(musicFilePath);
+        try {
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.start();
+        }
+        catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Music File Error");
+        }
+    }//end of playAudio
+	
+	public static void createLoadBar() {
+        //Welcome the user to the program.
+        LoadingBar loadingBar = new LoadingBar();
+        loadingBar.setLocationRelativeTo(null);
+        loadingBar.setVisible(true);
+        loadingBar.load();
+        loadingBar.dispose();
+    }//end of createLoadBar
+	
+	public static void setUIFont (javax.swing.plaf.FontUIResource f){
+	    Enumeration keys = UIManager.getDefaults().keys();
+	    while (keys.hasMoreElements()) {
+	      Object key = keys.nextElement();
+	      Object value = UIManager.get (key);
+	      if (value instanceof javax.swing.plaf.FontUIResource)
+	        UIManager.put (key, f);
+	      }
+	    } //end of setUIFont
+	
 
-}
+}//end of class
