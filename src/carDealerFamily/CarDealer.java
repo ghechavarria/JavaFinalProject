@@ -123,7 +123,7 @@ public class CarDealer extends JFrame{
 		leftPanel.add(lpanel1);
 		lpanel1.setBorder(BorderFactory.createTitledBorder("Image Goes Here"));
 		
-		//create panel for text boxes to enter user information
+		//create panel for text fields to enter user information
 		leftPanel.add(lpanel2);
 		//add labels & text field to panel
 		lpanel2.add(fNameLabel);
