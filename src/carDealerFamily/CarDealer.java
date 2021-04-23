@@ -3,9 +3,14 @@ package carDealerFamily;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.ImageIcon;
 
 public class CarDealer extends JFrame{
 	//GUI components declaration as fields
+	private ImageIcon imageUser = new ImageIcon("userImage.png");
+	private ImageIcon carPicture = new ImageIcon("car.png");
+	private JLabel picLabel;
+	private JLabel carLabel;
 	private JLabel fNameLabel, lNameLabel, addressLabel, cityLabel, stateLabel, zipLabel, countryLabel;
 	private JLabel modelsLabel, extrasLabel, discountsLabel, receiptLabel;
 	private JLabel customerID, customerName, subtotal, total;
@@ -26,6 +31,8 @@ public class CarDealer extends JFrame{
 		
 		//GUI COMPONENTS
 		//inside left panel
+		picLabel = new JLabel("");
+		carLabel = new JLabel("");
 		fNameLabel = new JLabel("First Name");
 		fName = new JTextField();
 		lNameLabel = new JLabel("Last Name");
@@ -60,13 +67,13 @@ public class CarDealer extends JFrame{
 		
 		//inside right panel
 		customerID = new JLabel("Customer ID: ");
-		idDisplay = new JLabel("------");
+		idDisplay = new JLabel("- - - - - -");
 		customerName = new JLabel("Customer Name: ");
-		nameDisplay = new JLabel("------ --------");
+		nameDisplay = new JLabel("- - - - - -  - - - - - - - -");
 		subtotal = new JLabel("Subtotal: ");
-		subtotalDisplay = new JLabel("$-----.00");
+		subtotalDisplay = new JLabel("$- - - - - . 00");
 		total = new JLabel("Total: ");
-		totalDisplay = new JLabel("$-----.00");
+		totalDisplay = new JLabel("$- - - - - . 00");
 		calculateBtn = new JButton("Calculate");
 		exitBtn = new JButton("Exit");
 		
@@ -112,16 +119,19 @@ public class CarDealer extends JFrame{
 		//create layout for sub-panels
 		leftPanel.setBounds(0, 0, 250, 550);
 		leftPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		leftPanel.setBorder(BorderFactory.createTitledBorder("Customer"));
 		
 		middlePanel.setBounds(300, 0, 250, 550);
 		middlePanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		
 		rightPanel.setBounds(600, 0, 250, 550);
 		rightPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
+		rightPanel.setBorder(BorderFactory.createTitledBorder("Receipt"));
 		
 		//create panel for Image
 		leftPanel.add(lpanel1);
-		lpanel1.setBorder(BorderFactory.createTitledBorder("Image Goes Here"));
+		picLabel.setIcon(imageUser);
+		lpanel1.add(picLabel);
 		
 		//create panel for text boxes to enter user information
 		leftPanel.add(lpanel2);
@@ -142,15 +152,11 @@ public class CarDealer extends JFrame{
 		lpanel2.add(countryDropDown);
 		//set layout for labels & text fields
 		lpanel2.setLayout(new GridLayout(8, 2));
-		//create border for labels & text fields
-		lpanel2.setBorder(BorderFactory.createTitledBorder("Customer Info"));
 		
 		//create panel for submit button
 		leftPanel.add(lpanel3);
 		//add submit button
 		lpanel3.add(signUpBtn);
-		//create border for submit button
-		lpanel3.setBorder(BorderFactory.createTitledBorder("Sign Up"));
 		
 		//Create panel for Model
 		middlePanel.add(mpanel1);
@@ -203,27 +209,25 @@ public class CarDealer extends JFrame{
 		rpanel1.add(totalDisplay);
 		//set layout for Receipt panel
 		rpanel1.setLayout(new GridLayout(5, 2));
-		//create border for Receipt panel
-		rpanel1.setBorder(BorderFactory.createTitledBorder("Receipt"));
-		
+				
 		
 		//add panel for calculate and exit buttons
 		rightPanel.add(rpanel2);
 		//add calculate and exit buttons
 		rpanel2.add(calculateBtn);
 		rpanel2.add(exitBtn);
-		//create border for calculate and exit buttons. TEMPORARY will probably delete later
-		rpanel2.setBorder(BorderFactory.createTitledBorder("Buttons"));
 		
-		//useless panel
+		//car picture panel
 		rightPanel.add(rpanel3);
-		//useless border
-		rpanel3.setBorder(BorderFactory.createTitledBorder("rpanel3"));
+		carLabel.setIcon(carPicture);
+		rpanel3.add(carLabel);
+	
 		
 		
 		//configure JFrame
 		JFrame frame = new JFrame();
-		frame.setSize(900, 600);
+		frame.setSize(865, 590);
+		this.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLayout(null);
