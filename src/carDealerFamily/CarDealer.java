@@ -27,11 +27,17 @@ public class CarDealer extends JFrame{
 		//GUI COMPONENTS
 		//inside left panel
 		fNameLabel = new JLabel("First Name");
+		fName = new JTextField();
 		lNameLabel = new JLabel("Last Name");
+		lName = new JTextField();
 		addressLabel = new JLabel("Address");
-		cityLabel = new JLabel("City");		
+		address = new JTextField();
+		cityLabel = new JLabel("City");	
+		city = new JTextField();
 		stateLabel = new JLabel("State");
+		state = new JTextField();
 		zipLabel = new JLabel("ZIP");
+		zip = new JTextField();
 		countryLabel = new JLabel("Country");
 		countryDropDown = new JComboBox(country);
 		signUpBtn = new JButton("Sign Up");
@@ -103,49 +109,119 @@ public class CarDealer extends JFrame{
 		JPanel rpanel2 = new JPanel();
 		JPanel rpanel3 = new JPanel();
 		
-		leftPanel.add(lpanel1);
-		leftPanel.add(lpanel2);
-		leftPanel.add(lpanel3);
-		lpanel1.setBorder(BorderFactory.createTitledBorder("lpanel1"));
-		lpanel2.setBorder(BorderFactory.createTitledBorder("lpanel2"));
-		lpanel3.setBorder(BorderFactory.createTitledBorder("lpanel3"));
-		leftPanel.setBounds(0, 0, 300, 600);
+		//create layout for sub-panels
+		leftPanel.setBounds(0, 0, 250, 550);
 		leftPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		
-		middlePanel.add(mpanel1);
-		middlePanel.add(mpanel2);
-		middlePanel.add(mpanel3);
-		mpanel1.setBorder(BorderFactory.createTitledBorder("Models"));
-		mpanel2.setBorder(BorderFactory.createTitledBorder("Extras"));
-		mpanel3.setBorder(BorderFactory.createTitledBorder("Discounts"));
-		middlePanel.setBounds(300, 0, 300, 600);
+		middlePanel.setBounds(300, 0, 250, 550);
 		middlePanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		
-		rightPanel.add(rpanel1);
-		rightPanel.add(rpanel2);
-		rightPanel.add(rpanel3);
-		rpanel1.setBorder(BorderFactory.createTitledBorder("Receipt"));
-		rpanel2.setBorder(BorderFactory.createTitledBorder("rpanel2"));
-		rpanel3.setBorder(BorderFactory.createTitledBorder("rpanel3"));
-		rightPanel.setBounds(600, 0, 600, 600);
+		rightPanel.setBounds(600, 0, 250, 550);
 		rightPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		
+		//create panel for Image
+		leftPanel.add(lpanel1);
+		lpanel1.setBorder(BorderFactory.createTitledBorder("Image Goes Here"));
+		
+		//create panel for text boxes to enter user information
+		leftPanel.add(lpanel2);
+		//add labels & text field to panel
+		lpanel2.add(fNameLabel);
+		lpanel2.add(fName);
+		lpanel2.add(lNameLabel);
+		lpanel2.add(lName);
+		lpanel2.add(addressLabel);
+		lpanel2.add(address);
+		lpanel2.add(cityLabel);
+		lpanel2.add(city);
+		lpanel2.add(stateLabel);
+		lpanel2.add(state);
+		lpanel2.add(zipLabel);
+		lpanel2.add(zip);
+		lpanel2.add(countryLabel);
+		lpanel2.add(countryDropDown);
+		//set layout for labels & text fields
+		lpanel2.setLayout(new GridLayout(8, 2));
+		//create border for labels & text fields
+		lpanel2.setBorder(BorderFactory.createTitledBorder("Customer Info"));
+		
+		//create panel for submit button
+		leftPanel.add(lpanel3);
+		//add submit button
+		lpanel3.add(signUpBtn);
+		//create border for submit button
+		lpanel3.setBorder(BorderFactory.createTitledBorder("Sign Up"));
+		
+		//Create panel for Model
+		middlePanel.add(mpanel1);
 		//add radio buttons to button group
 		bgModels.add(rbS40);
 		bgModels.add(rbS60);
 		bgModels.add(rbS70);
 		bgModels.add(rbS80);
-		
-		//add radio buttons to mpanel1
+		//add radio buttons to panel
 		mpanel1.add(rbS40);
 		mpanel1.add(rbS60);
 		mpanel1.add(rbS70);
 		mpanel1.add(rbS80);
-		
 		//set layout for radio buttons
 		mpanel1.setLayout(new GridLayout(4,1));
+		//create border for Model panel
+		mpanel1.setBorder(BorderFactory.createTitledBorder("Models"));
+		
+		//create panel for Extras
+		middlePanel.add(mpanel2);
+		//add check boxes to panel
+		mpanel2.add(packageA);
+		mpanel2.add(packageB);
+		mpanel2.add(metallicPaint);
+		//set layout for check boxes
+		mpanel2.setLayout(new GridLayout(3,1));
+		//create border for Extras panel
+		mpanel2.setBorder(BorderFactory.createTitledBorder("Extras"));
+		
+		//create panel for Discounts
+		middlePanel.add(mpanel3);
+		//add check boxes to panel
+		mpanel3.add(tradeIn);
+		mpanel3.add(financing);
+		mpanel3.add(payCash);
+		//set layout for check boxes
+		mpanel3.setLayout(new GridLayout(3,1));
+		//create border for Discounts panel
+		mpanel3.setBorder(BorderFactory.createTitledBorder("Discounts"));
+		
+		//create panel for Receipt
+		rightPanel.add(rpanel1);
+		rpanel1.add(customerID);
+		rpanel1.add(idDisplay);
+		rpanel1.add(customerName);
+		rpanel1.add(nameDisplay);
+		rpanel1.add(subtotal);
+		rpanel1.add(subtotalDisplay);
+		rpanel1.add(total);
+		rpanel1.add(totalDisplay);
+		//set layout for Receipt panel
+		rpanel1.setLayout(new GridLayout(5, 2));
+		//create border for Receipt panel
+		rpanel1.setBorder(BorderFactory.createTitledBorder("Receipt"));
 		
 		
+		//add panel for calculate and exit buttons
+		rightPanel.add(rpanel2);
+		//add calculate and exit buttons
+		rpanel2.add(calculateBtn);
+		rpanel2.add(exitBtn);
+		//create border for calculate and exit buttons. TEMPORARY will probably delete later
+		rpanel2.setBorder(BorderFactory.createTitledBorder("Buttons"));
+		
+		//useless panel
+		rightPanel.add(rpanel3);
+		//useless border
+		rpanel3.setBorder(BorderFactory.createTitledBorder("rpanel3"));
+		
+		
+		//configure JFrame
 		JFrame frame = new JFrame();
 		frame.setSize(900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
