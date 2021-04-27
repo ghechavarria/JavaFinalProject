@@ -91,7 +91,7 @@ public class S70 extends Car {
 		if (super.getFinancing() == true)
 			subtotal -= subtotal*.7; //7% off
 
-		return subtotal;
+		return Math.round(subtotal*100.0)/100.0;
 	}
 
 }
