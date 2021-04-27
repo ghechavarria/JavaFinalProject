@@ -554,16 +554,12 @@ public class CarDealer extends JFrame{
 		}
 	}
 	
-	private class buttonListener implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-//			if(signUpBtn.isSelected())
-//				//dropdown
-//				int index;
-//				String selectedCountry;
-//				index = countryDropDown.getSelectedIndex()
-//				selectedCountry = country[index]
+//	private class buttonListener implements ActionListener{
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			if(signUpBtn.isSelected()){
 //
+//			}
 //
 //			if(calculateBtn.isSelected()) {
 //
@@ -573,8 +569,8 @@ public class CarDealer extends JFrame{
 //				
 //			}
 //
-		}
-	}
+//		}
+//	}
 
 	
 	private class CheckListener implements ItemListener{
@@ -594,17 +590,6 @@ public class CarDealer extends JFrame{
 					packageA.setEnabled(true);
 			}
 			
-			
-//			if(e.getSource() == packageB) {
-//				if(packageB.isSelected())
-//
-//			}
-
-//			if(e.getSource() == metallicPaint) {
-//				if(metallicPaint.isSelected())
-//
-//			}
-			
 			if(e.getSource() == tradeIn) {
 				if(tradeIn.isSelected()) {
 					tiValueText.setEditable(true);
@@ -614,15 +599,6 @@ public class CarDealer extends JFrame{
 				}
 			}
 			
-//			if(e.getSource() == financing) {
-//			if(financing.isSelected())
-//
-//			}
-			
-//			if(e.getSource() == payCash) {
-//			if(payCash.isSelected())
-//
-//			}
 		}
 	}
 
