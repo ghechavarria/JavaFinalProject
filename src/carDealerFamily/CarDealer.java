@@ -609,6 +609,7 @@ public class CarDealer extends JFrame{
 				if(tradeIn.isSelected()) {
 					tiValueText.setEditable(true);
 				}else {
+					tiValueText.setText("0.0");
 					tiValueText.setEditable(false);
 				}
 			}
