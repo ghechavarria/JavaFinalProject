@@ -261,11 +261,12 @@ public class CarDealer extends JFrame{
 		//add check boxes to panel
 		mpanel2.add(packageA);
 		mpanel2.add(packageB);
-		mpanel2.add(metallicPaint);
+		mpanel2.add(metallicPaint);		
 		//set layout for check boxes
 		mpanel2.setLayout(new GridLayout(3,1));
 		//create border for Extras panel
 		mpanel2.setBorder(BorderFactory.createTitledBorder("Extras"));
+		
 		
 		//create panel for Discounts
 		middlePanel.add(mpanel3);
@@ -328,7 +329,7 @@ public class CarDealer extends JFrame{
 		//CALCULATE ACTION LISTENER
 		calculateBtn.addActionListener(e->{
 			playAudio("sound.wav");
-
+			
 		});
 		
 		//EXIT ACTION LISTENER
@@ -345,22 +346,40 @@ public class CarDealer extends JFrame{
 
 		
 	}
-	
 	private class rbActionListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-//			if(e.getSource() == rbS40) {
-//
-//			}
-//			if(e.getSource() == rbS60) {
-//
-//			}
-//			if(e.getSource() == rbS70) {
-//
-//			}
-//			if(e.getSource() == rbS80) {
-//
-//			}
+			if(e.getSource() == rbS40) {
+				if(rbS40.isSelected())
+					packageB.setEnabled(false);
+					packageA.setSelected(false);
+					packageB.setSelected(false);
+
+			}
+			
+			if(e.getSource() == rbS60) {
+				if(rbS60.isSelected())
+					packageB.setEnabled(false);
+					packageA.setSelected(false);
+					packageB.setSelected(false);
+			}
+			
+			if(e.getSource() == rbS70) {
+				if(rbS70.isSelected())
+					packageB.setEnabled(true);
+					packageA.setSelected(false);
+					packageB.setSelected(false);
+				
+
+			}
+			
+			if(e.getSource() == rbS80) {
+				if(rbS80.isSelected())
+					packageB.setEnabled(true);
+					packageA.setSelected(false);
+					packageB.setSelected(false);
+			}
+			
 		}
 	}
 	
@@ -390,11 +409,21 @@ public class CarDealer extends JFrame{
 	private class CheckListener implements ItemListener{
 		@Override
 		public void itemStateChanged(ItemEvent e) {
-//			if(e.getSource() == packageA) {
-//				if(packageA.isSelected())
-//
-//			}
-
+			if(e.getSource() == packageA) {
+				if(packageA.isSelected())
+			 		packageB.setEnabled(false);
+				else
+					packageB.setEnabled(true);
+			}
+			
+			if(e.getSource() == packageB) {
+				if(packageB.isSelected())
+			 		packageA.setEnabled(false);
+				else
+					packageA.setEnabled(true);
+			}
+			
+			
 //			if(e.getSource() == packageB) {
 //				if(packageB.isSelected())
 //
