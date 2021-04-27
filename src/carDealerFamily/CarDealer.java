@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.util.Enumeration;
-import javax.swing.ImageIcon;
 
 
 public class CarDealer extends JFrame{
@@ -32,6 +31,8 @@ public class CarDealer extends JFrame{
 	private JComboBox countryDropDown;
 	
 	private double tiValue = 0;
+	private JLabel tiValueLabel;
+	private JTextField tiValueText;
 	
 	public CarDealer() {
 		//list for dropdown
@@ -70,6 +71,8 @@ public class CarDealer extends JFrame{
 		
 		discountsLabel = new JLabel("Discounts");
 		tradeIn = new JCheckBox("Trade-In");
+		tiValueLabel = new JLabel(" Trade-In Value: ");
+		tiValueText = new JTextField();
 		financing = new JCheckBox("Financing  (-7%)");
 		payCash = new JCheckBox("Pay Cash  (-$750)");
 		
@@ -290,10 +293,14 @@ public class CarDealer extends JFrame{
 		middlePanel.add(mpanel3);
 		//add check boxes to panel
 		mpanel3.add(tradeIn);
+		mpanel3.add(tiValueLabel);
+		mpanel3.add(tiValueText);
+		tiValueText.setText("0.0");
+		tiValueText.setEditable(false);
 		mpanel3.add(financing);
 		mpanel3.add(payCash);
 		//set layout for check boxes
-		mpanel3.setLayout(new GridLayout(3,1));
+		mpanel3.setLayout(new GridLayout(5,1));
 		//create border for Discounts panel
 		mpanel3.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#A5AA6A"), 2, true),"Discounts"));
 		((javax.swing.border.TitledBorder)mpanel3.getBorder()).setTitleColor(Color.decode("#444B54"));
@@ -323,7 +330,7 @@ public class CarDealer extends JFrame{
 		rightPanel.add(rpanel3);
 		carLabel.setIcon(carPicture);
 		rpanel3.add(carLabel);
-	
+		
 		
 		//configure JFrame
 		//add components to window
@@ -385,8 +392,15 @@ public class CarDealer extends JFrame{
 					aPackage = true;
 				if (metallicPaint.isSelected())
 					metallic = true;
-				if (tradeIn.isSelected()) 
+				if (tradeIn.isSelected()) {
 					trade = true;
+					try {
+					tiValue = Double.parseDouble(tiValueText.getText());
+					}catch(NumberFormatException ex){
+						JOptionPane.showMessageDialog(null, "Not a number...");
+						tiValueText.setText("0.0");
+					}
+				}
 				if (financing.isSelected())
 					finance = true;
 				if (payCash.isSelected())
@@ -398,16 +412,21 @@ public class CarDealer extends JFrame{
 				
 			}
 
-		
-			
 			
 			if(rbS60.isSelected()) {
 				if (packageA.isSelected())
 					aPackage = true;
 				if (metallicPaint.isSelected())
 					metallic = true;
-				if (tradeIn.isSelected()) 
+				if (tradeIn.isSelected()) {
 					trade = true;
+					try {
+					tiValue = Double.parseDouble(tiValueText.getText());
+					}catch(NumberFormatException ex){
+						JOptionPane.showMessageDialog(null, "Not a number...");
+						tiValueText.setText("0.0");
+					}
+				}
 				if (financing.isSelected())
 					finance = true;
 				if (payCash.isSelected())
@@ -418,7 +437,6 @@ public class CarDealer extends JFrame{
 			}
 			
 			
-			
 			if(rbS70.isSelected()) {
 				if (packageA.isSelected())
 					packages = 1;
@@ -426,8 +444,15 @@ public class CarDealer extends JFrame{
 					packages = 2;
 				if (metallicPaint.isSelected())
 					metallic = true;
-				if (tradeIn.isSelected()) 
+				if (tradeIn.isSelected()) {
 					trade = true;
+					try {
+					tiValue = Double.parseDouble(tiValueText.getText());
+					}catch(NumberFormatException ex){
+						JOptionPane.showMessageDialog(null, "Not a number...");
+						tiValueText.setText("0.0");
+					}
+				}
 				if (financing.isSelected())
 					finance = true;
 				if (payCash.isSelected())
@@ -438,9 +463,6 @@ public class CarDealer extends JFrame{
 			}
 					
 
-				
-
-			
 			if(rbS80.isSelected()) {
 				if (packageA.isSelected())
 					packages = 1;
@@ -448,8 +470,15 @@ public class CarDealer extends JFrame{
 					packages = 2;
 				if (metallicPaint.isSelected())
 					metallic = true;
-				if (tradeIn.isSelected()) 
+				if (tradeIn.isSelected()) {
 					trade = true;
+					try {
+					tiValue = Double.parseDouble(tiValueText.getText());
+					}catch(NumberFormatException ex){
+						JOptionPane.showMessageDialog(null, "Not a number...");
+						tiValueText.setText("0.0");
+					}
+				}
 				if (financing.isSelected())
 					finance = true;
 				if (payCash.isSelected())
@@ -573,12 +602,10 @@ public class CarDealer extends JFrame{
 			
 			if(e.getSource() == tradeIn) {
 				if(tradeIn.isSelected()) {
-					
-					tiValue = Double.parseDouble(JOptionPane.showInputDialog("Trade In Value: "));
-					tradeIn.setSelected(true);
+					tiValueText.setEditable(true);
+				}else {
+					tiValueText.setEditable(false);
 				}
-					
-
 			}
 			
 //			if(e.getSource() == financing) {
