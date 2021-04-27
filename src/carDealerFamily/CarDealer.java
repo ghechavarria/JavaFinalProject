@@ -449,7 +449,7 @@ public class CarDealer extends JFrame{
 					try {
 					tiValue = Double.parseDouble(tiValueText.getText());
 					}catch(NumberFormatException ex){
-						JOptionPane.showMessageDialog(null, "Not a number...");
+						JOptionPane.showMessageDialog(null, "Not a number...", "Error", 2);
 						tiValueText.setText("0.0");
 					}
 				}
@@ -475,7 +475,7 @@ public class CarDealer extends JFrame{
 					try {
 					tiValue = Double.parseDouble(tiValueText.getText());
 					}catch(NumberFormatException ex){
-						JOptionPane.showMessageDialog(null, "Not a number...");
+						JOptionPane.showMessageDialog(null, "Not a number...", "Error", 2);
 						tiValueText.setText("0.0");
 					}
 				}
