@@ -12,7 +12,7 @@ import java.util.Enumeration;
 
 public class CarDealer extends JFrame{
 	//GUI components declaration as fields
-	private ImageIcon imageUser = new ImageIcon("userImage2.png");
+	private ImageIcon imageUser = new ImageIcon("userImage.png");
 	private ImageIcon carPicture = new ImageIcon("car.png");
 	private JLabel picLabel;
 	private JLabel carLabel;
