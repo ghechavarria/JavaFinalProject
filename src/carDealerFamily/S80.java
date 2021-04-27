@@ -77,10 +77,13 @@ public class S80 extends Car {
 			switch(this.getNumPackage()) {
 				case 0:
 					subtotal += 0;
+					break;
 				case 1:
 					subtotal += 2200; //Package "A"
+					break;
 				case 2:
 					subtotal += 3250; //Package "B"
+					break;
 			}
 			
 			if (super.getMetallicPaint() == true)
