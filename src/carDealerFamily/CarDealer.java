@@ -82,7 +82,7 @@ public class CarDealer extends JFrame{
 		customerID = new JLabel(" Customer ID: ");
 		idDisplay = new JLabel("------");
 		customerName = new JLabel(" Customer Name: ");
-		nameDisplay = new JLabel("------  --------");
+		nameDisplay = new JLabel("---------  ------------");
 		subtotal = new JLabel(" Subtotal: ");
 		subtotalDisplay = new JLabel("$-----.00");
 		total = new JLabel(" Total: ");
