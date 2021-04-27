@@ -31,6 +31,8 @@ public class CarDealer extends JFrame{
 	
 	private JComboBox countryDropDown;
 	
+	private double tiValue = 0;
+	
 	public CarDealer() {
 		//list for dropdown
 		String country[] = {"United States", "Canada"};
@@ -329,6 +331,90 @@ public class CarDealer extends JFrame{
 		//CALCULATE ACTION LISTENER
 		calculateBtn.addActionListener(e->{
 			playAudio("sound.wav");
+			Boolean aPackage, metallic, trade, finance, cash;
+			aPackage = metallic = trade = finance = cash = false;
+			int packages = 0;
+			
+			if(rbS40.isSelected()) {
+				if (packageA.isSelected())
+					aPackage = true;
+				if (metallicPaint.isSelected())
+					metallic = true;
+				if (tradeIn.isSelected()) 
+					trade = true;
+				if (financing.isSelected())
+					finance = true;
+				if (payCash.isSelected())
+					cash = true;
+				S40 s40 = new S40(metallic,trade,tiValue,finance,cash,aPackage);
+				subtotalDisplay.setText("$" + s40.calculateSubTotal());
+				totalDisplay.setText("$" + s40.calculateTotal(s40.calculateSubTotal()));
+
+				
+			}
+
+		
+			
+			
+			if(rbS60.isSelected()) {
+				if (packageA.isSelected())
+					aPackage = true;
+				if (metallicPaint.isSelected())
+					metallic = true;
+				if (tradeIn.isSelected()) 
+					trade = true;
+				if (financing.isSelected())
+					finance = true;
+				if (payCash.isSelected())
+					cash = true;
+				S60 s60 = new S60(metallic,trade,tiValue,finance,cash,aPackage);
+				subtotalDisplay.setText("$" + s60.calculateSubTotal());
+				totalDisplay.setText("$" + s60.calculateTotal(s60.calculateSubTotal()));
+			}
+			
+			
+			
+			if(rbS70.isSelected()) {
+				if (packageA.isSelected())
+					packages = 1;
+				if (packageB.isSelected())
+					packages = 2;
+				if (metallicPaint.isSelected())
+					metallic = true;
+				if (tradeIn.isSelected()) 
+					trade = true;
+				if (financing.isSelected())
+					finance = true;
+				if (payCash.isSelected())
+					cash = true;
+				S70 s70 = new S70(metallic,trade,tiValue,finance,cash,packages);
+				subtotalDisplay.setText("$" + s70.calculateSubTotal());
+				totalDisplay.setText("$" + s70.calculateTotal(s70.calculateSubTotal()));
+			}
+					
+
+				
+
+			
+			if(rbS80.isSelected()) {
+				if (packageA.isSelected())
+					packages = 1;
+				if (packageB.isSelected())
+					packages = 2;
+				if (metallicPaint.isSelected())
+					metallic = true;
+				if (tradeIn.isSelected()) 
+					trade = true;
+				if (financing.isSelected())
+					finance = true;
+				if (payCash.isSelected())
+					cash = true;
+				S80 s80 = new S80(metallic,trade,tiValue,finance,cash,packages);
+				subtotalDisplay.setText("$" + s80.calculateSubTotal());
+				totalDisplay.setText("$" + s80.calculateTotal(s80.calculateSubTotal()));
+			}
+
+			
 			
 		});
 		
@@ -350,34 +436,38 @@ public class CarDealer extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == rbS40) {
-				if(rbS40.isSelected())
+				if(rbS40.isSelected()) {
 					packageB.setEnabled(false);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+				}
 
 			}
 			
 			if(e.getSource() == rbS60) {
-				if(rbS60.isSelected())
+				if(rbS60.isSelected()) {
 					packageB.setEnabled(false);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+				}
 			}
 			
 			if(e.getSource() == rbS70) {
-				if(rbS70.isSelected())
+				if(rbS70.isSelected()) {
 					packageB.setEnabled(true);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+				}
 				
 
 			}
 			
 			if(e.getSource() == rbS80) {
-				if(rbS80.isSelected())
+				if(rbS80.isSelected()) {
 					packageB.setEnabled(true);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+				}
 			}
 			
 		}
@@ -434,10 +524,15 @@ public class CarDealer extends JFrame{
 //
 //			}
 			
-//			if(e.getSource() == tradeIn) {
-//				if(tradeIn.isSelected())
-//
-//			}
+			if(e.getSource() == tradeIn) {
+				if(tradeIn.isSelected()) {
+					
+					tiValue = Double.parseDouble(JOptionPane.showInputDialog("Trade In Value: "));
+					tradeIn.setSelected(true);
+				}
+					
+
+			}
 			
 //			if(e.getSource() == financing) {
 //			if(financing.isSelected())
