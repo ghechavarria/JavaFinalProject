@@ -285,6 +285,10 @@ public class CarDealer extends JFrame{
 		mpanel2.add(metallicPaint);		
 		//set layout for check boxes
 		mpanel2.setLayout(new GridLayout(3,1));
+		//
+		packageA.setEnabled(false);
+		packageB.setEnabled(false);
+		metallicPaint.setEnabled(false);
 		//create border for Extras panel
 		mpanel2.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#A5AA6A"), 2, true),"Extras"));
 		((javax.swing.border.TitledBorder)mpanel2.getBorder()).setTitleColor(Color.decode("#444B54"));
@@ -518,26 +522,35 @@ public class CarDealer extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == rbS40) {
 				if(rbS40.isSelected()) {
+					packageA.setEnabled(true);
 					packageB.setEnabled(false);
+					metallicPaint.setEnabled(true);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+					metallicPaint.setSelected(false);
 				}
 
 			}
 			
 			if(e.getSource() == rbS60) {
 				if(rbS60.isSelected()) {
+					packageA.setEnabled(true);
 					packageB.setEnabled(false);
+					metallicPaint.setEnabled(true);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+					metallicPaint.setSelected(false);
 				}
 			}
 			
 			if(e.getSource() == rbS70) {
 				if(rbS70.isSelected()) {
+					packageA.setEnabled(true);
 					packageB.setEnabled(true);
+					metallicPaint.setEnabled(true);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+					metallicPaint.setSelected(false);
 				}
 				
 
@@ -545,9 +558,12 @@ public class CarDealer extends JFrame{
 			
 			if(e.getSource() == rbS80) {
 				if(rbS80.isSelected()) {
+					packageA.setEnabled(true);
 					packageB.setEnabled(true);
+					metallicPaint.setEnabled(true);
 					packageA.setSelected(false);
 					packageB.setSelected(false);
+					metallicPaint.setSelected(false);
 				}
 			}
 			
@@ -576,20 +592,6 @@ public class CarDealer extends JFrame{
 	private class CheckListener implements ItemListener{
 		@Override
 		public void itemStateChanged(ItemEvent e) {
-			if(e.getSource() == packageA) {
-				if(packageA.isSelected())
-			 		packageB.setEnabled(false);
-				else
-					packageB.setEnabled(true);
-			}
-			
-			if(e.getSource() == packageB) {
-				if(packageB.isSelected())
-			 		packageA.setEnabled(false);
-				else
-					packageA.setEnabled(true);
-			}
-			
 			if(e.getSource() == tradeIn) {
 				if(tradeIn.isSelected()) {
 					tiValueText.setEditable(true);
