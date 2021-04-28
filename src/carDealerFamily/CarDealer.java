@@ -592,6 +592,16 @@ public class CarDealer extends JFrame{
 	private class CheckListener implements ItemListener{
 		@Override
 		public void itemStateChanged(ItemEvent e) {
+			if (e.getSource() == packageA) {
+				if(packageA.isSelected()) {
+					packageB.setSelected(false);
+				}
+			}
+			if (e.getSource() == packageB) {
+				if(packageB.isSelected()) {
+					packageA.setSelected(false);
+				}
+			}
 			if(e.getSource() == tradeIn) {
 				if(tradeIn.isSelected()) {
 					tiValueText.setEditable(true);
