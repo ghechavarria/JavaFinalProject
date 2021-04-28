@@ -213,16 +213,13 @@ public class CarDealer extends JFrame{
 		
 		//add layout manager
 		//create layout for sub-panels
-		leftPanel.setBounds(0, 0, 300, 550);
 		leftPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		leftPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#A5AA6A"), 2, true),"Customer"));
 		((javax.swing.border.TitledBorder)leftPanel.getBorder()).setTitleColor(Color.decode("#444B54"));
 		((javax.swing.border.TitledBorder)leftPanel.getBorder()).setTitleFont(new Font("MonoLisa", Font.BOLD, 18));
 		
-		middlePanel.setBounds(300, 0, 300, 550);
 		middlePanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		
-		rightPanel.setBounds(600, 0, 300, 550);
 		rightPanel.setLayout(new GridLayout(3, 1)); //3 rows, 1 column
 		rightPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#A5AA6A"), 2, true),"Receipt"));
 		((javax.swing.border.TitledBorder)rightPanel.getBorder()).setTitleColor(Color.decode("#444B54"));
@@ -337,21 +334,37 @@ public class CarDealer extends JFrame{
 		carLabel.setIcon(carPicture);
 		rpanel3.add(carLabel);
 		
+		this.add(leftPanel);
+		this.add(middlePanel);
+		this.add(rightPanel);
 		
 		//configure JFrame
 		//add components to window
 		//add to window
 		//set window parameters
-		JFrame frame = new JFrame();
-		frame.setSize(917, 590);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.setLayout(null);
-		frame.add(leftPanel);
-		frame.add(middlePanel);
-		frame.add(rightPanel);
-		frame.setTitle("Final Project");
+		
+		//FIXED WINDOW SIZE AND COMPONENTS
+		//leftPanel.setBounds(0, 0, 300, 550);
+		//middlePanel.setBounds(0, 0, 300, 550);
+		//rightPanel.setBounds(0, 0, 300, 550);
+		//JFrame frame = new JFrame();
+		//frame.setSize(917, 590);
+		//frame.setLocationRelativeTo(null);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setVisible(true);
+		//frame.setLayout(null);
+		//frame.setTitle("Final Project");
+		//frame.add(leftPanel);
+		//frame.add(middlePanel);
+		//frame.add(rightPanel);
+		
+		//RESIZABLE WINDOW AND COMPONENTS
+		this.setSize(917, 590);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.setLayout(new GridLayout(1,3));
+		this.setTitle("Final Project");
 		
 		//SIGN UP ACTION LISTENER
 		signUpBtn.addActionListener(e->{
