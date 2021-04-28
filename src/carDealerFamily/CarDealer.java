@@ -285,7 +285,7 @@ public class CarDealer extends JFrame{
 		mpanel2.add(metallicPaint);		
 		//set layout for check boxes
 		mpanel2.setLayout(new GridLayout(3,1));
-		//
+		//set extras disabled by default
 		packageA.setEnabled(false);
 		packageB.setEnabled(false);
 		metallicPaint.setEnabled(false);
