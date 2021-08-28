@@ -13,6 +13,7 @@ public abstract class Car {
 	public double getPrice() {
 		return price;
 	}
+	//hello
 	public void setPrice(double price) {
 		this.price = price;
 	}
